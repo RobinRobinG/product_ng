@@ -1,0 +1,18 @@
+<div class="alert alert-danger" *ngIf="errors">
+  <h4>{{errors._message}}</h4>
+  <p>{{errors.message}}</p>
+</div>
+<div class="container">
+  <h3>Details about {{product.name}}</h3>
+  <div class="card">
+    <div>Id: {{product._id}}</div>
+    <div>Name: {{product.name}}</div>
+    <div>Price: {{product.price | currency: 'USD': ture }}</div>
+    <div>Qty: {{product.qty}}</div>
+  </div>
+  <div class="inline=btn">
+    <a class="nav-link text-success" [routerLink]="['/products/edit', product._id]">EDIT</a>
+    <a class="nav-link text-secondary" [routerLink]="['/']">BACK</a>
+    <button class="btn btn-link" (click)="deleteProduct(product._id)">DELETE</button>
+  </div>
+</div>
